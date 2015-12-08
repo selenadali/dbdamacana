@@ -3,40 +3,52 @@
 @using dbdamacana.Models
 @model IEnumerable<dbdamacana.Models.Product>
 
-<h2>Index</h2>
+<h2>You Can Add Product To List - Delete Product From List and Add Product to Cart</h2>
 
 
     <a class="btn btn-default" href="@Url.Action("AddProduct")">Add New Product</a>
 
-    <h2>
-         Products
-    </h2>
-
-@foreach (Product p in Model)
-{
-    <h2>
-        @p.Name
-        @* (@p.Id)*@
-    </h2>
-    <p>
-        @p.Price
-    </p>
-    <div class="row">
-        <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-                <img src="http://www.thewaterdeliverycompany.com/blog/wp-content/uploads/2009/03/19-litre-bottled-water-bottle.jpg" alt="...">
-            </a>
-
-        </div>
-        <div>
-            <a class="btn btn-success" href="@Url.Action("AddToCart", "Carts", new { name = p.Name })">Add to Cart</a>
-            <a class="btn-link" style="color:red" href="@Url.Action("EditProduct", new { name = p.Name })"><b>Change Details </b></a>
-            <br />
-            <a class="btn btn-warning" style="color:blue" href="@Url.Action("DeleteProduct", new { name = p.Name })"><b>Remove Product</b></a>
-
-        </div>
+    <div class="progress">
+    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+        <span class="sr-only">100% Complete</span>
     </div>
+</div>
 
-    
+    <h2>
+        Products
+    </h2>
 
-}
+<div class="progress">
+    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+        <span class="sr-only">100% Complete</span>
+    </div>
+</div>
+
+    @foreach (Product p in Model)
+    {
+        <h2>
+            @p.Name
+            @* (@p.Id)*@
+        </h2>
+        <p>
+            @p.Price
+        </p>
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img src="http://www.thewaterdeliverycompany.com/blog/wp-content/uploads/2009/03/19-litre-bottled-water-bottle.jpg" alt="...">
+                </a>
+
+            </div>
+            <div>
+                <a class="btn btn-success" href="@Url.Action("AddToCart", "Carts", new { name = p.Name })">Add to Cart</a>
+                <a class="btn-link" style="color:red" href="@Url.Action("EditProduct", new { name = p.Name })"><b>Change Details </b></a>
+                <br />
+                <a class="btn btn-warning" style="color:blue" href="@Url.Action("DeleteProduct", new { name = p.Name })"><b>Remove Product</b></a>
+
+            </div>
+        </div>
+
+
+
+    }
